@@ -5,12 +5,30 @@
     <style>
         body {
             font-family: Arial, sans-serif;
+            background-color: #000;
+            color: #44D7A8;
+        }
+        a {
+            color: #44D7A8;
         }
         h1, h2 {
-            color: #333;
+            color: #FDB827; /* Jaguars gold */
         }
         section {
             margin-top: 2em;
+            border-bottom: 1px solid #44D7A8;
+            padding-bottom: 1em;
+        }
+        ul {
+            list-style-type: none;
+        }
+        ul li::before {
+            content: "\2022";
+            color: #FDB827; /* Jaguars gold */
+            font-weight: bold;
+            display: inline-block; 
+            width: 1em;
+            margin-left: -1em;
         }
     </style>
 </head>
