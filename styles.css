@@ -2,21 +2,29 @@ body {
     font-family: Arial, sans-serif;
     background-color: #000;
     color: #44D7A8;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
+
 a {
     color: #44D7A8;
 }
+
 h1, h2 {
     color: #FDB827;
 }
+
 section {
     margin-top: 2em;
     border-bottom: 1px solid #44D7A8;
     padding-bottom: 1em;
 }
+
 ul {
     list-style-type: none;
 }
+
 ul li::before {
     content: "\2022";
     color: #FDB827;
@@ -25,23 +33,38 @@ ul li::before {
     width: 1em;
     margin-left: -1em;
 }
+
 nav ul {
     display: flex;
-    justify-content: space-around;
+    flex-direction: column;
+    justify-content: center;
     background-color: #44D7A8;
     color: #000;
     padding: 1em 0;
 }
+
 nav ul li {
     cursor: pointer;
+    padding: 0.5em 1em;
 }
+
 nav ul li.active {
     color: #000;
     background-color: #FDB827;
 }
+
 section {
     display: none;
 }
+
 section.active {
     display: block;
+}
+
+/* Add responsive design for larger screens */
+@media (min-width: 768px) {
+    nav ul {
+        flex-direction: row;
+        justify-content: space-around;
+    }
 }
