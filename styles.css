@@ -36,7 +36,8 @@ nav ul li {
     cursor: pointer;
 }
 nav ul li.active {
-    color: #FDB827;
+    color: #000;
+    background-color: #FDB827;
 }
 section {
     display: none;
