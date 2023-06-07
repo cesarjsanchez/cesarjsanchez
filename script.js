@@ -11,7 +11,7 @@ function showSection(id) {
     });
 
     navItems.forEach(navItem => {
-        if (navItem.innerText.toLowerCase() === id) {
+        if (navItem.getAttribute('data-section') === id) {
             navItem.classList.add('active');
         } else {
             navItem.classList.remove('active');
