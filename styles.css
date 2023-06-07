@@ -32,6 +32,8 @@ nav ul {
 nav ul li {
     cursor: pointer;
     padding: 0.5em 1em;
+    color: #ffffff;
+    background-color: #44D7A8;
 }
 
 nav ul li.active {
