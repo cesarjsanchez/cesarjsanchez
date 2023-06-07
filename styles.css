@@ -1,8 +1,4 @@
-/* Add this at the top of your CSS file */
-* {
-    box-sizing: border-box;
-}
-
+/* General styles */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -19,20 +15,18 @@ a {
     color: #44D7A8;
 }
 
+/* Navigation styles */
 nav {
-    display: flex;
-    justify-content: space-around;
     background-color: #44D7A8;
-    color: #000;
-    padding: 1em 0;
 }
 
 nav ul {
-    display: flex;
-    list-style: none;
-    flex-wrap: wrap;
-    justify-content: center;
+    list-style-type: none;
     padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
 }
 
 nav ul li {
@@ -41,24 +35,37 @@ nav ul li {
 }
 
 nav ul li.active {
+    color: #000;
     background-color: #FDB827;
 }
 
+/* Section styles */
 section {
     display: none;
-    margin: 2em;
+    margin-top: 2em;
+    border-bottom: 1px solid #44D7A8;
+    padding-bottom: 1em;
 }
 
 section.active {
     display: block;
 }
 
-@media screen and (max-width: 600px) {
+/* Responsive styles */
+@media (max-width: 600px) {
     nav ul {
         flex-direction: column;
     }
 
-    nav ul li {
-        padding: 10px 0;
+    h1 {
+        font-size: 24px;
+    }
+    
+    h2 {
+        font-size: 20px;
+    }
+
+    ul li {
+        font-size: 16px;
     }
 }
