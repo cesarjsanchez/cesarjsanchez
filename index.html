@@ -3,6 +3,7 @@
 <head>
     <title>Cesar Jesus Sanchez - Portfolio</title>
     <style>
+        /* Existing CSS */
         body {
             font-family: Arial, sans-serif;
             background-color: #000;
@@ -12,7 +13,7 @@
             color: #44D7A8;
         }
         h1, h2 {
-            color: #FDB827; /* Jaguars gold */
+            color: #FDB827;
         }
         section {
             margin-top: 2em;
@@ -24,20 +25,44 @@
         }
         ul li::before {
             content: "\2022";
-            color: #FDB827; /* Jaguars gold */
+            color: #FDB827;
             font-weight: bold;
-            display: inline-block; 
+            display: inline-block;
             width: 1em;
             margin-left: -1em;
+        }
+        /* New CSS */
+        nav ul {
+            display: flex;
+            justify-content: space-around;
+            background-color: #44D7A8;
+            color: #000;
+            padding: 1em 0;
+        }
+        nav ul li {
+            cursor: pointer;
+        }
+        section {
+            display: none;
+        }
+        section.active {
+            display: block;
         }
     </style>
 </head>
 <body>
-    <header>
+
+        <header>
         <h1>Cesar Jesus Sanchez</h1>
         <p><a href="https://www.linkedin.com/in/cesarjsanchez">linkedin.com/in/cesarjsanchez</a></p>
     </header>
-
+    <nav>
+        <ul>
+            <li onclick="showSection('education')">Education</li>
+            <li onclick="showSection('work-experience')">Work Experience</li>
+            <li onclick="showSection('internships')">Internships</li>
+        </ul>
+    </nav>
     <section id="objective">
         <h2>Objective</h2>
         <p>Seasoned Business Intelligence Analyst with strong technical proficiency and exceptional communication skills, seeking a technology sales position. Demonstrated ability to deliver high-impact presentations, analyze complex problems, and deliver customer-centric solutions.</p>
@@ -111,5 +136,18 @@
     <footer>
         <p>Contact me at <a href="mailto:csanchez10@outlook.com">csanchez10@outlook.com</a></p>
     </footer>
+       <script>
+        function showSection(id) {
+            const sections = document.querySelectorAll('section');
+            sections.forEach(section => {
+                if (section.id === id) {
+                    section.classList.add('active');
+                } else {
+                    section.classList.remove('active');
+                }
+            });
+        }
+        showSection('education'); // Show the "Education" section by default
+    </script>
 </body>
 </html>
