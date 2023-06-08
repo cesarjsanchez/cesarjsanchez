@@ -1,4 +1,7 @@
-/* General styles */
+* {
+    box-sizing: border-box;
+}
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -18,6 +21,7 @@ a {
 /* Navigation styles */
 nav {
     background-color: #44D7A8;
+    width: 100%;
 }
 
 nav ul {
@@ -53,6 +57,10 @@ section.active {
     display: block;
 }
 
+p {
+    font-size: 16px;
+}
+
 /* Responsive styles */
 @media (max-width: 600px) {
     nav ul {
@@ -69,5 +77,13 @@ section.active {
 
     ul li {
         font-size: 16px;
+    }
+
+    p {
+        font-size: 18px;
+    }
+
+    section {
+        margin: 1em;
     }
 }
