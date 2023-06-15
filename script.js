@@ -21,6 +21,19 @@ function showSection(id) {
 
 showSection('education'); // Show the "Education" section by default
 
+const modeSwitcher = document.querySelector('#modeSwitcher');
+const body = document.querySelector('body');
+
+modeSwitcher.addEventListener('click', () => {
+    if (body.classList.contains('dark-mode')) {
+        body.classList.remove('dark-mode');
+        modeSwitcher.textContent = 'Switch to Dark Mode';
+    } else {
+        body.classList.add('dark-mode');
+        modeSwitcher.textContent = 'Switch to Light Mode';
+    }
+});
+
 window.onload = function() {
     const WORK_API_URL = "https://api.us-east.tinybird.co/v0/pipes/work_experience_pipe_6072.json?token=p.eyJ1IjogImJlMjI0MjJiLWMxZDMtNDM3OC05OTY3LTBiZmJlZTI4ZDM0ZSIsICJpZCI6ICIzMDUxYTc1OC1kNTk0LTQ3YTUtYjY3Mi1iNmFjYmI5Y2I0ZTgifQ.-8_l7AY-hvEKWkhGpJ29SYd1-SSGiiTWGcMTszsOrRI";
     const SKILLS_API_URL = "https://api.us-east.tinybird.co/v0/pipes/skills_pipe_0872.json?token=p.eyJ1IjogImJlMjI0MjJiLWMxZDMtNDM3OC05OTY3LTBiZmJlZTI4ZDM0ZSIsICJpZCI6ICIwMWM1YjY1ZS1jNmQ4LTQwNjMtOWQ0Yi1lZmJlZmIzNjdkNjIifQ.kEVNkZUnLUuIXC--6cIDJvKYyWQ_ae7CTBoF_3-fVeo";
