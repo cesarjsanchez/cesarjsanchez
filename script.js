@@ -24,7 +24,8 @@ showSection('education'); // Show the "Education" section by default
 window.onload = function() {
     const WORK_API_URL = "https://api.us-east.tinybird.co/v0/pipes/work_experience_pipe_6072.json?token=p.eyJ1IjogImJlMjI0MjJiLWMxZDMtNDM3OC05OTY3LTBiZmJlZTI4ZDM0ZSIsICJpZCI6ICIzMDUxYTc1OC1kNTk0LTQ3YTUtYjY3Mi1iNmFjYmI5Y2I0ZTgifQ.-8_l7AY-hvEKWkhGpJ29SYd1-SSGiiTWGcMTszsOrRI";
     const SKILLS_API_URL = "https://api.us-east.tinybird.co/v0/pipes/skills_pipe_0872.json?token=p.eyJ1IjogImJlMjI0MjJiLWMxZDMtNDM3OC05OTY3LTBiZmJlZTI4ZDM0ZSIsICJpZCI6ICIwMWM1YjY1ZS1jNmQ4LTQwNjMtOWQ0Yi1lZmJlZmIzNjdkNjIifQ.kEVNkZUnLUuIXC--6cIDJvKYyWQ_ae7CTBoF_3-fVeo";
-
+    const EDUCATION_API_URL = "https://api.us-east.tinybird.co/v0/pipes/education_pipe_4581.json?token=p.eyJ1IjogImJlMjI0MjJiLWMxZDMtNDM3OC05OTY3LTBiZmJlZTI4ZDM0ZSIsICJpZCI6ICIzYmUwYjNhNS1kNTI1LTQzOGUtYTQzNi1hZjUzMTUxMmI2MjgifQ.l0surXIIL41LLo2WeMOCE-Hs9v065DOyGslOxaDk98A";
+    const PROJECTS_API_URL = "https://api.us-east.tinybird.co/v0/pipes/projects_pipe_3799.json?token=p.eyJ1IjogImJlMjI0MjJiLWMxZDMtNDM3OC05OTY3LTBiZmJlZTI4ZDM0ZSIsICJpZCI6ICIzYTlkZmYxNS0xMGE1LTRiZDctODcyYy0zY2QwMTYxNDMyMzcifQ.vmj-gmOScNxIv6GKGfCPhKRNgJM4pAXUlXYv-3Q3E0o";
     // Work Experience
     fetch(WORK_API_URL)
         .then(response => response.json())
@@ -62,4 +63,42 @@ window.onload = function() {
                 skillsList.appendChild(li);
             }
         });
+
+        
+        // Education
+        fetch(EDUCATION_API_URL)
+            .then(response => response.json())
+            .then(data => {
+                const educationList = document.getElementById('educationList');
+                data.data.forEach(item => {
+                    const li = document.createElement('li');
+                    li.innerHTML = `
+                        <strong>${item.School}, ${item.College}</strong><br>
+                        Graduation Date: ${item.GradDate}<br>
+                        Degree Type: ${item.DegreeType}<br>
+                        Degree: ${item.Degree}<br>
+                        Location: ${item.Location}<br>
+                        <br>
+                    `;
+                    educationList.appendChild(li);
+                });
+            });
+
+            fetch(PROJECTS_API_URL)
+            .then(response => response.json())
+            .then(data => {
+                const projectList = document.getElementById('projectList');
+                data.data.forEach(item => {
+                    const div = document.createElement('div');
+                    div.innerHTML = `
+                        <h3>${item.Project}</h3>
+                        <p>${item.Description}</p>
+                        <p><a href="${item.Link}">Project Link</a></p>
+                        <p>${item.Details}</p>
+                        <p><a href="${item.OtherLink}">Other Link</a></p>
+                        <br> 
+                    `;
+                    projectList.appendChild(div);
+                });
+            });
 };

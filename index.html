@@ -10,11 +10,13 @@
         <header>
         <h1>Cesar Jesus Sanchez</h1>
         <p><a href="https://www.linkedin.com/in/cesarjsanchez">linkedin.com/in/cesarjsanchez</a></p>
+        <p><a href="https://github.com/cesarjsanchez">github.com/cesarjsanchez</a></p>
     </header>
     <nav>
         <ul>
             <li data-section="education" onclick="showSection('education')">Education</li>
             <li data-section="workExperience" onclick="showSection('workExperience')">Work Experience</li>
+            <li data-section="projects" onclick="showSection('projects')">Projects</li>
             <li data-section="skills" onclick="showSection('skills')">Skills</li>
             <li data-section="certifications" onclick="showSection('certifications')">Certifications</li>
         </ul>
@@ -26,11 +28,19 @@
 
     <section id="education">
         <h2>Education</h2>
-        <p>University of Florida, Hough Graduate School of Business, May 2020<br>
-        Master of Science in Information Systems and Operations Management (MSISOM), Gainesville, FL<br>
-        Track: Information Technology</p>
-        <p>University of Florida, Warrington College of Business, May 2019<br>
-        Bachelor of Science in Business Administration, Information Systems, Gainesville, FL</p>
+        <ul id="educationList"></ul>
+    </section>
+
+    <section id="workExperience">
+        <h2>Work Experience</h2>
+        <ul id="workExperienceList">
+            <!-- Work experience will be dynamically inserted here -->
+        </ul>
+    </section>
+
+    <section id="projects">
+        <h2>Projects</h2>
+        <div id="projectList"></div>
     </section>
 
     <section id="skills">
@@ -47,12 +57,6 @@
         </ul>
     </section>
 
-    <section id="workExperience">
-        <h2>Work Experience</h2>
-        <ul id="workExperienceList">
-            <!-- Work experience will be dynamically inserted here -->
-        </ul>
-    </section>
 
     <footer>
         <p>Contact me at <a href="mailto:csanchez10@outlook.com">csanchez10@outlook.com</a></p>
