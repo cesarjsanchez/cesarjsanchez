@@ -19,7 +19,7 @@ function showSection(id) {
     });
 }
 
-showSection('education'); // Show the "Education" section by default
+showSection('workExperience'); // Show the "Education" section by default
 
 const modeSwitcher = document.querySelector('#modeSwitcher');
 const body = document.querySelector('body');
