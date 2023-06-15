@@ -7,7 +7,7 @@ body {
     margin: 0;
     padding: 0;
     background-color: #000;
-    color: #44D7A8;
+    color: #00a7cd;
 }
 
 h1, h2 {
@@ -15,12 +15,12 @@ h1, h2 {
 }
 
 a {
-    color: #44D7A8;
+    color: #00a7cd;
 }
 
 /* Navigation styles */
 nav {
-    background-color: #44D7A8;
+    background-color: #00a7cd;
     width: 100%;
 }
 
@@ -37,7 +37,7 @@ nav ul li {
     cursor: pointer;
     padding: 0.5em 1em;
     color: #ffffff;
-    background-color: #44D7A8;
+    background-color: #00a7cd;
 }
 
 nav ul li.active {
@@ -49,7 +49,7 @@ nav ul li.active {
 section {
     display: none;
     margin-top: 2em;
-    border-bottom: 1px solid #44D7A8;
+    border-bottom: 1px solid #00a7cd;
     padding-bottom: 1em;
 }
 
