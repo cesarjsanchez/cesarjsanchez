@@ -117,7 +117,7 @@ window.onload = function() {
             });
 };
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('window.onload', function() {
     // Track clicks on all buttons
     const buttons = document.getElementsByTagName('button');
     for (let i = 0; i < buttons.length; i++) {
