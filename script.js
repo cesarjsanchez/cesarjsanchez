@@ -121,7 +121,7 @@ window.onload = function() {
                 const buttons = document.getElementsByTagName('button');
                 for (let i = 0; i < buttons.length; i++) {
                     buttons[i].addEventListener('click', function() {
-                        flock.track('button_click', { button_id: this.id, button_class: this.className, button_text: this.textContent });
+                        Tinybird.trackEvent('button_click', { button_id: this.id, button_class: this.className, button_text: this.textContent });
                     });
                 }
             
@@ -130,7 +130,7 @@ window.onload = function() {
                 for (let i = 0; i < links.length; i++) {
                     links[i].addEventListener('click', function(event) {
                         event.preventDefault();  // prevent the default action
-                        flock.track('link_click', { link_href: this.href, link_text: this.textContent }, () => {
+                        Tinybird.trackEvent('link_click', { link_href: this.href, link_text: this.textContent }, () => {
                             window.location.href = this.href;  // navigate to the link after sending the event
                         });
                     });
@@ -141,10 +141,10 @@ window.onload = function() {
                 for (let i = 0; i < listItems.length; i++) {
                     if (listItems[i].hasAttribute('onclick')) {
                         listItems[i].addEventListener('click', function() {
-                            flock.track('list_item_click', { item_data_section: this.getAttribute('data-section'), item_text: this.textContent });
+                            Tinybird.trackEvent('list_item_click', { item_data_section: this.getAttribute('data-section'), item_text: this.textContent });
                         });
                     }
                 }
-            });
+            }); 
 };
 
