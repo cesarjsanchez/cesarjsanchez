@@ -115,35 +115,36 @@ window.onload = function() {
                     projectList.appendChild(div);
                 });
             });
+
+            document.addEventListener('window.onload', function() {
+                // Track clicks on all buttons
+                const buttons = document.getElementsByTagName('button');
+                for (let i = 0; i < buttons.length; i++) {
+                    buttons[i].addEventListener('click', function() {
+                        flock.track('button_click', { button_id: this.id, button_class: this.className, button_text: this.textContent });
+                    });
+                }
+            
+                // Track clicks on all links
+                const links = document.getElementsByTagName('a');
+                for (let i = 0; i < links.length; i++) {
+                    links[i].addEventListener('click', function(event) {
+                        event.preventDefault();  // prevent the default action
+                        flock.track('link_click', { link_href: this.href, link_text: this.textContent }, () => {
+                            window.location.href = this.href;  // navigate to the link after sending the event
+                        });
+                    });
+                }
+            
+                // Track clicks on all list items with onclick handlers
+                const listItems = document.getElementsByTagName('li');
+                for (let i = 0; i < listItems.length; i++) {
+                    if (listItems[i].hasAttribute('onclick')) {
+                        listItems[i].addEventListener('click', function() {
+                            flock.track('list_item_click', { item_data_section: this.getAttribute('data-section'), item_text: this.textContent });
+                        });
+                    }
+                }
+            });
 };
 
-document.addEventListener('window.onload', function() {
-    // Track clicks on all buttons
-    const buttons = document.getElementsByTagName('button');
-    for (let i = 0; i < buttons.length; i++) {
-        buttons[i].addEventListener('click', function() {
-            flock.track('button_click', { button_id: this.id, button_class: this.className, button_text: this.textContent });
-        });
-    }
-
-    // Track clicks on all links
-    const links = document.getElementsByTagName('a');
-    for (let i = 0; i < links.length; i++) {
-        links[i].addEventListener('click', function(event) {
-            event.preventDefault();  // prevent the default action
-            flock.track('link_click', { link_href: this.href, link_text: this.textContent }, () => {
-                window.location.href = this.href;  // navigate to the link after sending the event
-            });
-        });
-    }
-
-    // Track clicks on all list items with onclick handlers
-    const listItems = document.getElementsByTagName('li');
-    for (let i = 0; i < listItems.length; i++) {
-        if (listItems[i].hasAttribute('onclick')) {
-            listItems[i].addEventListener('click', function() {
-                flock.track('list_item_click', { item_data_section: this.getAttribute('data-section'), item_text: this.textContent });
-            });
-        }
-    }
-});
