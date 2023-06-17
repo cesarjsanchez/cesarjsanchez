@@ -128,16 +128,19 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Track clicks on all links
-    const links = document.getElementsByTagName('a');
-    for (let i = 0; i < links.length; i++) {
-        links[i].addEventListener('click', function(event) {
-            event.preventDefault();  // prevent the default action
-            Tinybird.trackEvent('link_click', { link_href: this.href, link_text: this.textContent }, () => {
-                window.location.href = this.href;  // navigate to the link after sending the event
-            });
-        });
-    }
+   // Track clicks on all links
+   const links = document.getElementsByTagName('a');
+   for (let i = 0; i < links.length; i++) {
+
+       links[i].addEventListener('click', function(event) {
+           event.preventDefault();  // prevent the default action
+           Tinybird.trackEvent('link_click', { link_href: this.href, link_text: this.textContent });
+           setTimeout(function() {
+            window.location.href = this.href;
+        }, 500);
+       });
+   }
+
 
     // Track clicks on all list items with onclick handlers
     const listItems = document.getElementsByTagName('li');
