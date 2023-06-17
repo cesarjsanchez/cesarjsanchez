@@ -128,20 +128,29 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-   // Track clicks on all links
-   const links = document.getElementsByTagName('a');
-   for (let i = 0; i < links.length; i++) {
+// Track clicks on all links
+const links = document.getElementsByTagName('a');
+for (let i = 0; i < links.length; i++) {
+    links[i].addEventListener('click', function(event) {
+        event.preventDefault(); 
 
-       links[i].addEventListener('click', function(event) {
-           event.preventDefault();  // prevent the default action
-           Tinybird.trackEvent('link_click', { link_href: this.href, link_text: this.textContent });
-           setTimeout(function() {
-            window.location.href = this.href;
+        let href = this.href;
+        
+        Tinybird.trackEvent('link_click', { link_href: this.href, link_text: this.textContent }, (err) => {
+
+            if (err) {
+                console.log("Error tracking event:", err);
+            }
+            // If you're here, this isn't getting called.
+            window.location.href = href;
+        });
+
+        // If the callback doesn't get called, this will.
+        setTimeout(function() {
+            window.location.href = href;
         }, 500);
-       });
-   }
-
-
+    });
+}
     // Track clicks on all list items with onclick handlers
     const listItems = document.getElementsByTagName('li');
     for (let i = 0; i < listItems.length; i++) {
